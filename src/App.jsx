@@ -4,8 +4,27 @@ import "./App.css";
 
 function App() {
   const [yes, setYes] = useState(false);
-  const [no, setNo] = useState(false);
+  const [isMoving, setIsMoving] = useState(false);
+  const [position, setPosition] = useState({
+    top: 0,
+    left: 0,
+  });
   const [hearts, setHearts] = useState([]);
+
+  const moveButton = () => {
+    if (!isMoving) setIsMoving(true);
+
+    const maxX = window.innerWidth - 100;
+    const maxY = window.innerHeight - 50;
+
+    const newX = Math.floor(Math.random() * maxX);
+    const newY = Math.floor(Math.random() * maxY);
+
+    setPosition({
+      top: newY,
+      left: newX,
+    });
+  };
 
   const startLoveFlow = () => {
     const newHearts = [];
@@ -50,13 +69,22 @@ function App() {
               <button className="yesButton" onClick={handleYesClick}>
                 Yes
               </button>
-              <button className="noButton" onClick={() => setNo(true)}>
+              <button
+                className="noButton"
+                style={{
+                  position: isMoving ? "absolute" : "static",
+                  top: isMoving ? `${position.top}px` : "auto",
+                  left: isMoving ? `${position.left}px` : "auto",
+                  transition: isMoving
+                    ? "top 0.5s ease-in-out, left 0.5s ease-in-out"
+                    : "none",
+                }}
+                onMouseEnter={moveButton}
+                onClick={moveButton}
+              >
                 No
               </button>
             </div>
-            {no && (
-              <h4 style={{ marginTop: "30px" }}>My baby please nau🥺🥺🥺</h4>
-            )}
           </>
         )}
         {yes && (
