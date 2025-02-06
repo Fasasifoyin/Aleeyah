@@ -2,6 +2,20 @@
 import { useState } from "react";
 import "./App.css";
 
+const noList = [
+  "Baby girl please nau🥺🥺🥺",
+  "Aleeyah say yes🙏",
+  "You won't regret it, please pick Yes",
+  "Say yes, make me happy ehn fine girl",
+  "Pick yes and let's have the best time together",
+  "You're my heartbeat please pick yes",
+  "Please, I'm begging you na",
+  "I promise it will be an awesome moment",
+  "My frinds will laugh at me, please nauuu",
+  "Jo nau baby mi to fine",
+  "Arewa Aleeyah mi, please say yes baby",
+];
+
 function App() {
   const [yes, setYes] = useState(false);
   const [isMoving, setIsMoving] = useState(false);
@@ -9,10 +23,23 @@ function App() {
     top: 0,
     left: 0,
   });
+  const [number, setNumber] = useState(0);
   const [hearts, setHearts] = useState([]);
+
+  const generateNumber = (current) => {
+    let newNumber;
+    do {
+      newNumber = Math.floor(Math.random() * 11);
+    } while (newNumber === current);
+
+    return newNumber;
+  };
 
   const moveButton = () => {
     if (!isMoving) setIsMoving(true);
+
+    const newNumber = generateNumber(number);
+    setNumber(newNumber);
 
     const maxX = window.innerWidth - 100;
     const maxY = window.innerHeight - 50;
@@ -67,7 +94,7 @@ function App() {
             <p style={{ fontWeight: "bold" }}>Will you be my Valentine?</p>
             <div className="button-container">
               <button className="yesButton" onClick={handleYesClick}>
-                Yes
+                Yes!
               </button>
               <button
                 className="noButton"
@@ -85,6 +112,9 @@ function App() {
                 No
               </button>
             </div>
+            {isMoving && (
+              <h4 style={{ marginTop: "20px" }}>{noList[number]}</h4>
+            )}
           </>
         )}
         {yes && (
