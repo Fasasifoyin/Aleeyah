@@ -41,8 +41,11 @@ function App() {
               Every moment with you feels like a dream. You make my life so much
               brighter, and i can't imagine it without you
             </p>
-            <p>This Valentine's Day, I want to ask you something...</p>
-            <p>Will you be my Valentine?</p>
+            <p>
+              Valentine is in a week time and I would love to ask you
+              something...
+            </p>
+            <p style={{ fontWeight: "bold" }}>Will you be my Valentine?</p>
             <div className="button-container">
               <button className="yesButton" onClick={handleYesClick}>
                 Yes
@@ -78,7 +81,7 @@ function App() {
                 />
               ))}
             </div>
-            <h4 style={{marginTop:"20px"}}>I love you Aleeyah❤️</h4>
+            <h4 style={{ marginTop: "20px" }}>I love you Aleeyah❤️</h4>
           </>
         )}
       </div>
