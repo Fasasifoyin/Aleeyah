@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero {
+  display: flex;
+  height: 100vh;
+  min-height: 100vh;
+  overflow-y: scroll;
+  padding: 20px 0;
+}
+
+.scrollbody {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbody::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  margin: auto;
+  width: 90%;
+  max-width: 600px;
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+h1 {
+  font-family: "Pacifico", cursive;
+  color: #e91e63;
+  margin-bottom: 20px;
+  font-size: clamp(
+    20px,
+    calc(20px + (34 - 20) * ((100vw - 320px) / (1440 - 320))),
+    34px
+  );
+}
+
+.cute-gif {
+  width: 100%;
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 10px;
+  font-size: clamp(
+    12px,
+    calc(12px + (16 - 12) * ((100vw - 320px) / (1440 - 320))),
+    16px
+  );
+}
+
+.button-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+button {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.yesButton {
+  background: #e91e63;
+  color: white;
+}
+
+.yesButton:hover {
+  background: #c2185b;
+}
+
+.noButton {
+  background: #607d8b;
+}
+
+.noButton:hover {
+  background: #455264;
+}
+
+.response-gif {
+  width: 100%;
+  max-width: 300px;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: -20px;
+  animation: floatUp 3s ease-in-out infinite;
+  background: url("https://www.freeiconspng.com/uploads/heart-png-31.png")
+    no-repeat center center/contain;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
